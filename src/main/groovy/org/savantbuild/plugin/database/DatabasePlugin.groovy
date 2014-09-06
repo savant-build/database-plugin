@@ -14,6 +14,7 @@
  * language governing permissions and limitations under the License.
  */
 package org.savantbuild.plugin.database
+
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource
 import liquibase.Liquibase
 import liquibase.changelog.DatabaseChangeLog
@@ -37,6 +38,7 @@ import org.savantbuild.runtime.RuntimeConfiguration
 import java.nio.file.Files
 import java.nio.file.Path
 import java.util.concurrent.TimeUnit
+
 /**
  * Database plugin.
  *
@@ -75,7 +77,6 @@ class DatabasePlugin extends BaseGroovyPlugin {
           "  database.compare(left: \"database1\", right: \"database2\")")
     }
 
-    output.info("Executing SQL script [${attributes["file"]}]")
     String leftDatabaseName = attributes["left"].toString()
     String rightDatabaseName = attributes["right"].toString()
     Database leftDatabase = makeLiquibaseDatabase(leftDatabaseName)
@@ -95,12 +96,12 @@ class DatabasePlugin extends BaseGroovyPlugin {
    *   database.settings.type = "mysql"
    *   database.settings.compareUsername = "dev"
    *   database.settings.comparePassword = "dev"
-   *   database.compareAndFail(left: "database1", right: "database2)
+   *   database.ensureEqual(left: "database1", right: "database2)
    * </pre>
    *
    * @param attributes The named attributes (left and right are required).
    */
-  void compareAndFail(Map<String, Object> attributes) {
+  void ensureEqual(Map<String, Object> attributes) {
     DiffResult result = compare(attributes)
     try {
       if (!result.areEqual()) {

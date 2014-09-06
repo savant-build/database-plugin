@@ -63,7 +63,7 @@ class DatabasePluginTest {
   }
 
   @Test
-  void mysqlCompare() throws Exception {
+  void mysqlEnsureEqual() throws Exception {
     DatabasePlugin plugin = new DatabasePlugin(project, new RuntimeConfiguration(), output)
     plugin.settings.type = "mysql"
     plugin.settings.createUsername = "root"
@@ -73,11 +73,11 @@ class DatabasePluginTest {
     plugin.createMainDatabase()
     plugin.execute(file: "src/test/resources/test-mysql.sql")
 
-    plugin.compareAndFail(left: "database_plugin", right: "database_plugin_test")
+    plugin.ensureEqual(left: "database_plugin", right: "database_plugin_test")
   }
 
   @Test
-  void postgresqlCompare() throws Exception {
+  void postgresqlEnsureEqual() throws Exception {
     DatabasePlugin plugin = new DatabasePlugin(project, new RuntimeConfiguration(), output)
     plugin.settings.type = "postgresql"
     plugin.settings.createUsername = "postgres"
@@ -87,7 +87,7 @@ class DatabasePluginTest {
     plugin.createMainDatabase()
     plugin.execute(file: "src/test/resources/test-postgresql.sql")
 
-    plugin.compareAndFail(left: "database_plugin", right: "database_plugin_test")
+    plugin.ensureEqual(left: "database_plugin", right: "database_plugin_test")
   }
 
   @Test
