@@ -79,6 +79,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
 
     String leftDatabaseName = attributes["left"].toString()
     String rightDatabaseName = attributes["right"].toString()
+    output.info("Comparing database [${leftDatabaseName}] to [${rightDatabaseName}]")
     Database leftDatabase = makeLiquibaseDatabase(leftDatabaseName)
     Database rightDatabase = makeLiquibaseDatabase(rightDatabaseName)
 

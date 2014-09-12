@@ -1,5 +1,3 @@
-import java.nio.file.Paths
-
 /*
  * Copyright (c) 2014, Inversoft Inc., All Rights Reserved
  *
@@ -15,6 +13,8 @@ import java.nio.file.Paths
  * either express or implied. See the License for the specific
  * language governing permissions and limitations under the License.
  */
+import java.nio.file.Paths
+
 savantVersion = "0.2.0-{integration}"
 
 project(group: "org.savantbuild.plugin", name: "database", version: "0.2.0", license: "Apachev2") {
@@ -27,17 +27,17 @@ project(group: "org.savantbuild.plugin", name: "database", version: "0.2.0", lic
   }
 
   dependencies {
-    group(type: "provided") {
+    group(name: "provided") {
       dependency(id: "org.savantbuild:savant-core:${savantVersion}")
       dependency(id: "org.savantbuild:savant-dependency-management:${savantVersion}")
       dependency(id: "org.savantbuild:savant-utils:${savantVersion}")
     }
-    group(type: "compile") {
+    group(name: "compile") {
       dependency(id: "com.mysql:mysql-connector-java:5.1.32")
       dependency(id: "org.liquibase:liquibase-core:3.2.2")
       dependency(id: "org.postgresql:postgresql:9.3.1102+jdbc41")
     }
-    group(type: "test-compile", export: false) {
+    group(name: "test-compile", export: false) {
       dependency(id: "org.testng:testng:6.8.7")
     }
   }
@@ -62,9 +62,9 @@ groovyTestNG.settings.groovyVersion = "2.2"
 groovyTestNG.settings.javaVersion = "1.8"
 idea.settings.imlFile = Paths.get("database-plugin.iml")
 idea.settings.moduleMap = [
-    "org.savantbuild:savant-core:${savantVersion}":"savant-core",
-    "org.savantbuild:savant-dependency-management:${savantVersion}":"savant-dependency-management",
-    "org.savantbuild:savant-utils:${savantVersion}":"savant-utils"
+    "org.savantbuild:savant-core:${savantVersion}"                 : "savant-core",
+    "org.savantbuild:savant-dependency-management:${savantVersion}": "savant-dependency-management",
+    "org.savantbuild:savant-utils:${savantVersion}"                : "savant-utils"
 ]
 
 target(name: "clean", description: "Cleans the project") {
