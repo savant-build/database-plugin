@@ -59,7 +59,7 @@ class DatabasePluginTest {
     project.group = "org.savantbuild.test"
     project.name = "database-plugin"
     project.version = new Version("1.0")
-    project.license = License.Apachev2
+    project.licenses.put(License.ApacheV2_0, null)
   }
 
   @Test
