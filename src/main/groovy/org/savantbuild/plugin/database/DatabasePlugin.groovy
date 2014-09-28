@@ -14,7 +14,6 @@
  * language governing permissions and limitations under the License.
  */
 package org.savantbuild.plugin.database
-
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource
 import liquibase.Liquibase
 import liquibase.changelog.DatabaseChangeLog
@@ -37,8 +36,6 @@ import org.savantbuild.runtime.RuntimeConfiguration
 
 import java.nio.file.Files
 import java.nio.file.Path
-import java.util.concurrent.TimeUnit
-
 /**
  * Database plugin.
  *
@@ -130,23 +127,23 @@ class DatabasePlugin extends BaseGroovyPlugin {
 
     if (settings.type.toLowerCase() == "mysql") {
       String createUsername = (settings.createUsername) ? settings.createUsername : "root"
-      execAndWait(["mysql", "-u${createUsername}", "-v", "-e", "DROP DATABASE IF EXISTS ${settings.name}"], 2)
-      execAndWait(["mysql", "-u${createUsername}", "-v", "-e", "CREATE DATABASE ${settings.name} ${settings.createArguments}"], 2)
+      execAndWait(["mysql", "-u${createUsername}", "-v", "-e", "DROP DATABASE IF EXISTS ${settings.name}"])
+      execAndWait(["mysql", "-u${createUsername}", "-v", "-e", "CREATE DATABASE ${settings.name} ${settings.createArguments}"])
 
       if (settings.grantUsername) {
         output.info("Granting privileges to [${settings.grantUsername}]")
-        execAndWait(["mysql", "-u${createUsername}", "-v", "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'localhost' IDENTIFIED BY '${settings.grantPassword}'"], 2)
-        execAndWait(["mysql", "-u${createUsername}", "-v", "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'127.0.0.1' IDENTIFIED BY '${settings.grantPassword}'"], 2)
+        execAndWait(["mysql", "-u${createUsername}", "-v", "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'localhost' IDENTIFIED BY '${settings.grantPassword}'"])
+        execAndWait(["mysql", "-u${createUsername}", "-v", "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'127.0.0.1' IDENTIFIED BY '${settings.grantPassword}'"])
       }
     } else if (settings.type.toLowerCase() == "postgresql") {
       String createUsername = (settings.createUsername) ? settings.createUsername : "postgres"
-      execAndWait(["psql", "-U", createUsername, "-c", "DROP DATABASE IF EXISTS ${settings.name}"], 2)
-      execAndWait(["psql", "-U", createUsername, "-c", "CREATE DATABASE ${settings.name} ${settings.createArguments}"], 2)
+      execAndWait(["psql", "-U", createUsername, "-c", "DROP DATABASE IF EXISTS ${settings.name}"])
+      execAndWait(["psql", "-U", createUsername, "-c", "CREATE DATABASE ${settings.name} ${settings.createArguments}"])
 
       if (settings.grantUsername) {
         output.info("Granting privileges to [${settings.grantUsername}]")
-        execAndWait(["psql", "-U", createUsername, "-c", "GRANT ALL PRIVILEGES ON DATABASE ${settings.name} TO ${settings.grantUsername}"], 2)
-        execAndWait(["psql", "-U", createUsername, "-c", "GRANT ALL PRIVILEGES ON DATABASE ${settings.name} TO ${settings.grantUsername}"], 2)
+        execAndWait(["psql", "-U", createUsername, "-c", "GRANT ALL PRIVILEGES ON DATABASE ${settings.name} TO ${settings.grantUsername}"])
+        execAndWait(["psql", "-U", createUsername, "-c", "GRANT ALL PRIVILEGES ON DATABASE ${settings.name} TO ${settings.grantUsername}"])
       }
     } else {
       fail("Unsupported database type [${settings.type}]")
@@ -194,9 +191,9 @@ class DatabasePlugin extends BaseGroovyPlugin {
 
     String script = new String(Files.readAllBytes(resolvedFile), "UTF-8")
     if (settings.type.toLowerCase() == "mysql") {
-      execAndWait(["mysql", "-u${settings.grantUsername}", "-p${settings.grantPassword}", "-v", settings.name], script, 2)
+      execAndWait(["mysql", "-u${settings.grantUsername}", "-p${settings.grantPassword}", "-v", settings.name], script)
     } else if (settings.type.toLowerCase() == "postgresql") {
-      execAndWait(["psql", "-U", settings.grantUsername, settings.name], script, 2)
+      execAndWait(["psql", "-U", settings.grantUsername, settings.name], script)
     } else {
       fail("Unsupported database type [${settings.type}]")
     }
@@ -222,7 +219,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
     return database
   }
 
-  private void execAndWait(List<String> command, long seconds) {
+  private void execAndWait(List<String> command) {
     output.debug("Running [%s]", command.join(" "))
 
     Process process = command.execute()
@@ -230,19 +227,15 @@ class DatabasePlugin extends BaseGroovyPlugin {
     StringBuilder err = new StringBuilder()
     process.consumeProcessOutput(out, err)
 
-    if (!process.waitFor(seconds, TimeUnit.SECONDS)) {
-      fail("Unable to execute the command against the database. Often this is because you have not correctly setup your password configuration (.pgpass or mysql.options)")
-    }
-
-    if (process.exitValue() != 0) {
-      fail("Command [${command.join(' ')}] failed. Turn on debugging to see the error message from the database.")
-    }
-
     output.debug(out.toString())
     output.debug(err.toString())
+
+    if (process.waitFor() != 0) {
+      fail("Command [${command.join(' ')}] failed. Turn on debugging to see the error message from the database.")
+    }
   }
 
-  private void execAndWait(List<String> command, String input, long seconds) {
+  private void execAndWait(List<String> command, String input) {
     Process process = command.execute()
     StringBuilder out = new StringBuilder()
     StringBuilder err = new StringBuilder()
@@ -251,14 +244,10 @@ class DatabasePlugin extends BaseGroovyPlugin {
       writer << input
     }
 
-    if (!process.waitFor(seconds, TimeUnit.SECONDS)) {
-      fail("Unable to execute the command against the database. Often this is because you have not correctly setup your password configuration (.pgpass or mysql.options)")
-    }
-
     output.debug(out.toString())
     output.debug(err.toString())
 
-    if (process.exitValue() != 0) {
+    if (process.waitFor() != 0) {
       fail("Command [${command.join(' ')}] failed. Turn on debugging to see the error message from the database.")
     }
   }
