@@ -14,6 +14,7 @@
  * language governing permissions and limitations under the License.
  */
 package org.savantbuild.plugin.database
+
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource
 import liquibase.Liquibase
 import liquibase.changelog.DatabaseChangeLog
@@ -36,6 +37,7 @@ import org.savantbuild.runtime.RuntimeConfiguration
 
 import java.nio.file.Files
 import java.nio.file.Path
+
 /**
  * Database plugin.
  *
