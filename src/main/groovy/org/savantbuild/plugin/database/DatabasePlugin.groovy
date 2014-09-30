@@ -172,8 +172,9 @@ class DatabasePlugin extends BaseGroovyPlugin {
   /**
    * Executes the file specified by the {@code file} attribute. Here is an example of calling this method:
    * <pre>
+   *   database.settings.name = "foo-bar"
    *   database.settings.type = "mysql"
-   *   database.settings.executeUsername = "root"
+   *   database.settings.grantUsername = "root"
    *   database.execute(file: "foo.sql")
    * </pre>
    */
