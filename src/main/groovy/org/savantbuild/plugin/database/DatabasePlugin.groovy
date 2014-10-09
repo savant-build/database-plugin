@@ -15,6 +15,18 @@
  */
 package org.savantbuild.plugin.database
 
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.Paths
+
+import org.postgresql.jdbc2.optional.SimpleDataSource
+import org.savantbuild.dep.domain.ArtifactID
+import org.savantbuild.domain.Project
+import org.savantbuild.output.Output
+import org.savantbuild.parser.groovy.GroovyTools
+import org.savantbuild.plugin.groovy.BaseGroovyPlugin
+import org.savantbuild.runtime.RuntimeConfiguration
+
 import com.mysql.jdbc.jdbc2.optional.MysqlDataSource
 import liquibase.Liquibase
 import liquibase.changelog.DatabaseChangeLog
@@ -26,17 +38,17 @@ import liquibase.diff.DiffResult
 import liquibase.diff.compare.CompareControl
 import liquibase.diff.output.report.DiffToReport
 import liquibase.resource.ClassLoaderResourceAccessor
-import liquibase.structure.core.*
-import org.postgresql.jdbc2.optional.SimpleDataSource
-import org.savantbuild.domain.Project
-import org.savantbuild.io.FileTools
-import org.savantbuild.output.Output
-import org.savantbuild.parser.groovy.GroovyTools
-import org.savantbuild.plugin.groovy.BaseGroovyPlugin
-import org.savantbuild.runtime.RuntimeConfiguration
-
-import java.nio.file.Files
-import java.nio.file.Path
+import liquibase.structure.core.Column
+import liquibase.structure.core.Data
+import liquibase.structure.core.ForeignKey
+import liquibase.structure.core.Index
+import liquibase.structure.core.PrimaryKey
+import liquibase.structure.core.Schema
+import liquibase.structure.core.Sequence
+import liquibase.structure.core.StoredProcedure
+import liquibase.structure.core.Table
+import liquibase.structure.core.UniqueConstraint
+import liquibase.structure.core.View
 
 /**
  * Database plugin.
@@ -44,11 +56,22 @@ import java.nio.file.Path
  * @author Brian Pontarelli
  */
 class DatabasePlugin extends BaseGroovyPlugin {
+  public static
+  final String ERROR_MESSAGE = "You must create the file [~/.savant/plugins/org.savantbuild.plugin.database.properties] " +
+      "that contains the username and password for your databases (PostgreSQL passwords must be specified using the .pgpass file though). " +
+      "These properties look like this:\n\n" +
+      "  mysql.username=root\n" +
+      "  mysql.password=password\n" +
+      "  postgresql.username=postgres\n"
+
   DatabaseSettings settings
+
+  Properties properties
 
   DatabasePlugin(Project project, RuntimeConfiguration runtimeConfiguration, Output output) {
     super(project, runtimeConfiguration, output)
     settings = new DatabaseSettings(project)
+    properties = loadConfiguration(new ArtifactID("org.savantbuild.plugin", "database", "database", "jar"), ERROR_MESSAGE)
   }
 
   /**
@@ -127,17 +150,41 @@ class DatabasePlugin extends BaseGroovyPlugin {
   void createDatabase() {
     output.info("Creating database [${settings.name}]")
 
+    if (!settings.type) {
+      fail("You must configure the database type to use with the settings object. It will look something like this:\n\n" +
+          "  database.settings.type=\"mysql\"")
+    }
+
+    if (!settings.createUsername) {
+      settings.createUsername = properties.getProperty(settings.type + ".username")
+      if (!settings.createUsername) {
+        fail("Your database.properties file is missing the [%s.username] property", settings.type)
+      }
+    }
+
     if (settings.type.toLowerCase() == "mysql") {
-      String createUsername = (settings.createUsername) ? settings.createUsername : "root"
-      execAndWait(["mysql", "-u${createUsername}", "-v", "-e", "DROP DATABASE IF EXISTS ${settings.name}"])
-      execAndWait(["mysql", "-u${createUsername}", "-v", "-e", "CREATE DATABASE ${settings.name} ${settings.createArguments}"])
+      String createPassword = properties.getProperty(settings.type + ".password")
+      if (createPassword) {
+        execAndWait(["mysql", "-u${settings.createUsername}", "-p${createPassword}", "-v", "-e", "DROP DATABASE IF EXISTS ${settings.name}"])
+        execAndWait(["mysql", "-u${settings.createUsername}", "-p${createPassword}", "-v", "-e", "CREATE DATABASE ${settings.name} ${settings.createArguments}"])
+      } else {
+        execAndWait(["mysql", "-u${settings.createUsername}", "-v", "-e", "DROP DATABASE IF EXISTS ${settings.name}"])
+        execAndWait(["mysql", "-u${settings.createUsername}", "-v", "-e", "CREATE DATABASE ${settings.name} ${settings.createArguments}"])
+      }
 
       if (settings.grantUsername) {
         output.info("Granting privileges to [${settings.grantUsername}]")
-        execAndWait(["mysql", "-u${createUsername}", "-v", "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'localhost' IDENTIFIED BY '${settings.grantPassword}'"])
-        execAndWait(["mysql", "-u${createUsername}", "-v", "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'127.0.0.1' IDENTIFIED BY '${settings.grantPassword}'"])
+        if (createPassword) {
+          execAndWait(["mysql", "-u${settings.createUsername}", "-p${createPassword}", "-v", "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'localhost' IDENTIFIED BY '${settings.grantPassword}'"])
+          execAndWait(["mysql", "-u${settings.createUsername}", "-p${createPassword}", "-v", "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'127.0.0.1' IDENTIFIED BY '${settings.grantPassword}'"])
+        } else {
+          execAndWait(["mysql", "-u${settings.createUsername}", "-v", "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'localhost' IDENTIFIED BY '${settings.grantPassword}'"])
+          execAndWait(["mysql", "-u${settings.createUsername}", "-v", "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'127.0.0.1' IDENTIFIED BY '${settings.grantPassword}'"])
+        }
       }
     } else if (settings.type.toLowerCase() == "postgresql") {
+      verifyPgpass()
+
       String createUsername = (settings.createUsername) ? settings.createUsername : "postgres"
       execAndWait(["psql", "-U", createUsername, "-c", "DROP DATABASE IF EXISTS ${settings.name}"])
       execAndWait(["psql", "-U", createUsername, "-c", "CREATE DATABASE ${settings.name} ${settings.createArguments}"])
@@ -252,6 +299,18 @@ class DatabasePlugin extends BaseGroovyPlugin {
 
     if (process.waitFor() != 0) {
       fail("Command [${command.join(' ')}] failed. Turn on debugging to see the error message from the database.")
+    }
+  }
+
+  private void verifyPgpass() {
+    Path pgpass = Paths.get(System.getProperty("user.home") + "/.pgpass");
+    if (Files.isRegularFile(pgpass)) {
+      String contents = new String(Files.readAllBytes(pgpass))
+      if (contents.contains("localhost:5432:*:${settings.createUsername}")) {
+        output.warning("Your ~/.pgpass file doesn't have a definition for the user [%s]. Unless your PostgreSQL database is using local authentication or has no passwords, this build will fail.", settings.createUsername)
+      }
+    } else {
+      output.warning("You don't have a ~/.pgpass file. Unless your PostgreSQL database is using local authentication or has no passwords, this build will fail.")
     }
   }
 }
