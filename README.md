@@ -1,5 +1,4 @@
-Database Plugin
-============================
+## Database Plugin
 
 This plugin provides the ability to create an setup databases for your project.
 
