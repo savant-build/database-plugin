@@ -17,7 +17,7 @@ import java.nio.file.Paths
 
 savantVersion = "0.3.0"
 
-project(group: "org.savantbuild.plugin", name: "database", version: "0.3.0", licenses: ["ApacheV2_0"]) {
+project(group: "org.savantbuild.plugin", name: "database", version: "0.3.1", licenses: ["ApacheV2_0"]) {
   workflow {
     standard()
   }
@@ -36,7 +36,7 @@ project(group: "org.savantbuild.plugin", name: "database", version: "0.3.0", lic
       dependency(id: "com.mysql:mysql-connector-java:5.1.32")
       dependency(id: "org.liquibase:liquibase-core:3.2.2")
       dependency(id: "org.postgresql:postgresql:9.3.1102+jdbc41")
-      dependency(id: "org.savantbuild:savant-io:${savantVersion}")
+      dependency(id: "org.savantbuild:savant-io:0.3.1")
     }
     group(name: "test-compile", export: false) {
       dependency(id: "org.testng:testng:6.8.7")
@@ -65,6 +65,7 @@ idea.settings.imlFile = Paths.get("database-plugin.iml")
 idea.settings.moduleMap = [
     "org.savantbuild:savant-core:${savantVersion}"                 : "savant-core",
     "org.savantbuild:savant-dependency-management:${savantVersion}": "savant-dependency-management",
+    "org.savantbuild:savant-io:0.3.1"                              : "savant-io",
     "org.savantbuild:savant-utils:${savantVersion}"                : "savant-utils"
 ]
 
