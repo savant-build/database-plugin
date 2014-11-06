@@ -194,9 +194,9 @@ class DatabasePlugin extends BaseGroovyPlugin {
 
     String script = new String(Files.readAllBytes(resolvedFile), "UTF-8")
     if (settings.type.toLowerCase() == "mysql") {
-      execAndWait(["mysql", "-u${settings.grantUsername}", "-p${settings.grantPassword}", "-v", settings.name], script)
+      execAndWait(["mysql", "-u${settings.grantUsername}", "-p${settings.grantPassword}", "-v", settings.name], script, attributes['file'].toString())
     } else if (settings.type.toLowerCase() == "postgresql") {
-      execAndWait(["psql", "-U", settings.grantUsername, settings.name], script)
+      execAndWait(["psql", "-U", settings.grantUsername, settings.name], script, attributes['file'].toString())
     } else {
       fail("Unsupported database type [${settings.type}]")
     }
@@ -230,15 +230,15 @@ class DatabasePlugin extends BaseGroovyPlugin {
     StringBuilder err = new StringBuilder()
     process.consumeProcessOutput(out, err)
 
+    int code = process.waitFor()
     output.debug(out.toString())
     output.debug(err.toString())
-
-    if (process.waitFor() != 0) {
+    if (code != 0) {
       fail("Command [${command.join(' ')}] failed. Turn on debugging to see the error message from the database.")
     }
   }
 
-  private void execAndWait(List<String> command, String input) {
+  private void execAndWait(List<String> command, String input, String fileName) {
     Process process = command.execute()
     StringBuilder out = new StringBuilder()
     StringBuilder err = new StringBuilder()
@@ -247,11 +247,11 @@ class DatabasePlugin extends BaseGroovyPlugin {
       writer << input
     }
 
+    int code = process.waitFor()
     output.debug(out.toString())
     output.debug(err.toString())
-
-    if (process.waitFor() != 0) {
-      fail("Command [${command.join(' ')}] failed. Turn on debugging to see the error message from the database.")
+    if (code != 0) {
+      fail("Command [${command.join(' ')} < ${fileName}] failed. Turn on debugging to see the error message from the database.")
     }
   }
 }
