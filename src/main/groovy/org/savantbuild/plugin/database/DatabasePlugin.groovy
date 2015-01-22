@@ -129,23 +129,23 @@ class DatabasePlugin extends BaseGroovyPlugin {
 
     if (settings.type.toLowerCase() == "mysql") {
       String createUsername = (settings.createUsername) ? settings.createUsername : "root"
-      execAndWait(["mysql", "-u${createUsername}", "-v", "-e", "DROP DATABASE IF EXISTS ${settings.name}"])
-      execAndWait(["mysql", "-u${createUsername}", "-v", "-e", "CREATE DATABASE ${settings.name} ${settings.createArguments}"])
+      execAndWait(["mysql", "-u${createUsername}", "-v", settings.createArguments, "-e", "DROP DATABASE IF EXISTS ${settings.name}"])
+      execAndWait(["mysql", "-u${createUsername}", "-v", settings.createArguments, "-e", "CREATE DATABASE ${settings.name} ${settings.createSuffix}"])
 
       if (settings.grantUsername) {
         output.info("Granting privileges to [${settings.grantUsername}]")
-        execAndWait(["mysql", "-u${createUsername}", "-v", "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'localhost' IDENTIFIED BY '${settings.grantPassword}'"])
-        execAndWait(["mysql", "-u${createUsername}", "-v", "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'127.0.0.1' IDENTIFIED BY '${settings.grantPassword}'"])
+        execAndWait(["mysql", "-u${createUsername}", "-v", settings.createArguments, "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'localhost' IDENTIFIED BY '${settings.grantPassword}'"])
+        execAndWait(["mysql", "-u${createUsername}", "-v", settings.createArguments, "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'127.0.0.1' IDENTIFIED BY '${settings.grantPassword}'"])
       }
     } else if (settings.type.toLowerCase() == "postgresql") {
       String createUsername = (settings.createUsername) ? settings.createUsername : "postgres"
-      execAndWait(["psql", "-U", createUsername, "-c", "DROP DATABASE IF EXISTS ${settings.name}"])
-      execAndWait(["psql", "-U", createUsername, "-c", "CREATE DATABASE ${settings.name} ${settings.createArguments}"])
+      execAndWait(["psql", "-U", createUsername, settings.createArguments, "-c", "DROP DATABASE IF EXISTS ${settings.name}"])
+      execAndWait(["psql", "-U", createUsername, settings.createArguments, "-c", "CREATE DATABASE ${settings.name} ${settings.createSuffix}"])
 
       if (settings.grantUsername) {
         output.info("Granting privileges to [${settings.grantUsername}]")
-        execAndWait(["psql", "-U", createUsername, "-c", "GRANT ALL PRIVILEGES ON DATABASE ${settings.name} TO ${settings.grantUsername}"])
-        execAndWait(["psql", "-U", createUsername, "-c", "GRANT ALL PRIVILEGES ON DATABASE ${settings.name} TO ${settings.grantUsername}"])
+        execAndWait(["psql", "-U", createUsername, settings.createArguments, "-c", "GRANT ALL PRIVILEGES ON DATABASE ${settings.name} TO ${settings.grantUsername}"])
+        execAndWait(["psql", "-U", createUsername, settings.createArguments, "-c", "GRANT ALL PRIVILEGES ON DATABASE ${settings.name} TO ${settings.grantUsername}"])
       }
     } else {
       fail("Unsupported database type [${settings.type}]")
@@ -194,9 +194,9 @@ class DatabasePlugin extends BaseGroovyPlugin {
 
     String script = new String(Files.readAllBytes(resolvedFile), "UTF-8")
     if (settings.type.toLowerCase() == "mysql") {
-      execAndWait(["mysql", "-u${settings.grantUsername}", "-p${settings.grantPassword}", "-v", settings.name], script, attributes['file'].toString())
+      execAndWait(["mysql", "-u${settings.executeUsername}", "-p${settings.executePassword}", "-v", settings.executeArguments, settings.name], script, attributes['file'].toString())
     } else if (settings.type.toLowerCase() == "postgresql") {
-      execAndWait(["psql", "-U", settings.grantUsername, settings.name], script, attributes['file'].toString())
+      execAndWait(["psql", "-U", settings.executeUsername, settings.executeArguments, settings.name], script, attributes['file'].toString())
     } else {
       fail("Unsupported database type [${settings.type}]")
     }
@@ -223,6 +223,8 @@ class DatabasePlugin extends BaseGroovyPlugin {
   }
 
   private void execAndWait(List<String> command) {
+    command.removeAll { it.trim().isEmpty() }
+
     output.debug("Running [%s]", command.join(" "))
 
     Process process = command.execute()
@@ -239,6 +241,10 @@ class DatabasePlugin extends BaseGroovyPlugin {
   }
 
   private void execAndWait(List<String> command, String input, String fileName) {
+    command.removeAll { it.trim().isEmpty() }
+
+    output.debug("Running [%s]", command.join(" ") + " < ${fileName}")
+
     Process process = command.execute()
     StringBuilder out = new StringBuilder()
     StringBuilder err = new StringBuilder()
