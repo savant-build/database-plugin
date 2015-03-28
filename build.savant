@@ -15,9 +15,9 @@
  */
 import java.nio.file.Paths
 
-savantVersion = "0.3.0"
+savantVersion = "0.4.0"
 
-project(group: "org.savantbuild.plugin", name: "database", version: "0.3.3", licenses: ["ApacheV2_0"]) {
+project(group: "org.savantbuild.plugin", name: "database", version: "0.4.0", licenses: ["ApacheV2_0"]) {
   workflow {
     standard()
   }
@@ -36,7 +36,7 @@ project(group: "org.savantbuild.plugin", name: "database", version: "0.3.3", lic
       dependency(id: "com.mysql:mysql-connector-java:5.1.32")
       dependency(id: "org.liquibase:liquibase-core:3.2.2")
       dependency(id: "org.postgresql:postgresql:9.3.1102+jdbc41")
-      dependency(id: "org.savantbuild:savant-io:0.3.1")
+      dependency(id: "org.savantbuild:savant-io:${savantVersion}")
     }
     group(name: "test-compile", export: false) {
       dependency(id: "org.testng:testng:6.8.7")
@@ -65,7 +65,7 @@ idea.settings.imlFile = Paths.get("database-plugin.iml")
 idea.settings.moduleMap = [
     "org.savantbuild:savant-core:${savantVersion}"                 : "savant-core",
     "org.savantbuild:savant-dependency-management:${savantVersion}": "savant-dependency-management",
-    "org.savantbuild:savant-io:0.3.1"                              : "savant-io",
+    "org.savantbuild:savant-io:${savantVersion}"                   : "savant-io",
     "org.savantbuild:savant-utils:${savantVersion}"                : "savant-utils"
 ]
 
@@ -93,7 +93,7 @@ target(name: "int", description: "Releases a local integration build of the proj
   dependency.integrate()
 }
 
-target(name: "release", description: "Releases a full version of the project", dependsOn: ["test"]) {
+target(name: "release", description: "Releases a full version of the project", dependsOn: ["clean", "test"]) {
   release.release()
 }
 

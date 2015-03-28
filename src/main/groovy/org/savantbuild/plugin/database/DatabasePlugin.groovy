@@ -78,7 +78,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
 
     String leftDatabaseName = attributes["left"].toString()
     String rightDatabaseName = attributes["right"].toString()
-    output.info("Comparing database [${leftDatabaseName}] to [${rightDatabaseName}]")
+    output.infoln("Comparing database [${leftDatabaseName}] to [${rightDatabaseName}]")
     Database leftDatabase = makeLiquibaseDatabase(leftDatabaseName)
     Database rightDatabase = makeLiquibaseDatabase(rightDatabaseName)
 
@@ -125,7 +125,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
    * </pre>
    */
   void createDatabase() {
-    output.info("Creating database [${settings.name}]")
+    output.infoln("Creating database [${settings.name}]")
 
     if (settings.type.toLowerCase() == "mysql") {
       String createUsername = (settings.createUsername) ? settings.createUsername : "root"
@@ -133,7 +133,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
       execAndWait(["mysql", "-u${createUsername}", "-v", settings.createArguments, "-e", "CREATE DATABASE ${settings.name} ${settings.createSuffix}"])
 
       if (settings.grantUsername) {
-        output.info("Granting privileges to [${settings.grantUsername}]")
+        output.infoln("Granting privileges to [${settings.grantUsername}]")
         execAndWait(["mysql", "-u${createUsername}", "-v", settings.createArguments, "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'localhost' IDENTIFIED BY '${settings.grantPassword}'"])
         execAndWait(["mysql", "-u${createUsername}", "-v", settings.createArguments, "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'127.0.0.1' IDENTIFIED BY '${settings.grantPassword}'"])
       }
@@ -143,7 +143,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
       execAndWait(["psql", "-U", createUsername, settings.createArguments, "-c", "CREATE DATABASE ${settings.name} ${settings.createSuffix}"])
 
       if (settings.grantUsername) {
-        output.info("Granting privileges to [${settings.grantUsername}]")
+        output.infoln("Granting privileges to [${settings.grantUsername}]")
         execAndWait(["psql", "-U", createUsername, settings.createArguments, "-c", "GRANT ALL PRIVILEGES ON DATABASE ${settings.name} TO ${settings.grantUsername}"])
         execAndWait(["psql", "-U", createUsername, settings.createArguments, "-c", "GRANT ALL PRIVILEGES ON DATABASE ${settings.name} TO ${settings.grantUsername}"])
       }
@@ -184,7 +184,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
           "  database.execute(file: \"foo.sql\")")
     }
 
-    output.info("Executing SQL script [${attributes["file"]}]")
+    output.infoln("Executing SQL script [${attributes["file"]}]")
 
     Path file = FileTools.toPath(attributes["file"])
     Path resolvedFile = project.directory.resolve(file)
@@ -225,7 +225,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
   private void execAndWait(List<String> command) {
     command.removeAll { it.trim().isEmpty() }
 
-    output.debug("Running [%s]", command.join(" "))
+    output.debugln("Running [%s]", command.join(" "))
 
     Process process = command.execute()
     StringBuilder out = new StringBuilder()
@@ -233,8 +233,8 @@ class DatabasePlugin extends BaseGroovyPlugin {
     process.consumeProcessOutput(out, err)
 
     int code = process.waitFor()
-    output.debug(out.toString())
-    output.debug(err.toString())
+    output.debugln(out.toString())
+    output.debugln(err.toString())
     if (code != 0) {
       fail("Command [${command.join(' ')}] failed. Turn on debugging to see the error message from the database.")
     }
@@ -243,7 +243,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
   private void execAndWait(List<String> command, String input, String fileName) {
     command.removeAll { it.trim().isEmpty() }
 
-    output.debug("Running [%s]", command.join(" ") + " < ${fileName}")
+    output.debugln("Running [%s]", command.join(" ") + " < ${fileName}")
 
     Process process = command.execute()
     StringBuilder out = new StringBuilder()
@@ -254,8 +254,8 @@ class DatabasePlugin extends BaseGroovyPlugin {
     }
 
     int code = process.waitFor()
-    output.debug(out.toString())
-    output.debug(err.toString())
+    output.debugln(out.toString())
+    output.debugln(err.toString())
     if (code != 0) {
       fail("Command [${command.join(' ')} < ${fileName}] failed. Turn on debugging to see the error message from the database.")
     }
