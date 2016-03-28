@@ -134,8 +134,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
 
       if (settings.grantUsername) {
         output.infoln("Granting privileges to [${settings.grantUsername}]")
-        execAndWait(["mysql", "-u${createUsername}", "-v", settings.createArguments, "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'localhost' IDENTIFIED BY '${settings.grantPassword}'"])
-        execAndWait(["mysql", "-u${createUsername}", "-v", settings.createArguments, "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'127.0.0.1' IDENTIFIED BY '${settings.grantPassword}'"])
+        execAndWait(["mysql", "-u${createUsername}", "-v", settings.createArguments, "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'%' IDENTIFIED BY '${settings.grantPassword}'"])
       }
     } else if (settings.type.toLowerCase() == "postgresql") {
       String createUsername = (settings.createUsername) ? settings.createUsername : "postgres"
@@ -180,8 +179,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
    */
   void execute(Map<String, Object> attributes) {
     if (!GroovyTools.hasAttributes(attributes, "file")) {
-      fail("You must specify the name of the SQL file to execute using the file attribute like this:\n\n" +
-          "  database.execute(file: \"foo.sql\")")
+      fail("You must specify the name of the SQL file to execute using the file attribute like this:\n\n  database.execute(file: \"foo.sql\")")
     }
 
     output.infoln("Executing SQL script [${attributes["file"]}]")
