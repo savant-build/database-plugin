@@ -15,7 +15,7 @@
  */
 savantVersion = "1.0.0"
 
-project(group: "org.savantbuild.plugin", name: "database", version: "1.0.0", licenses: ["ApacheV2_0"]) {
+project(group: "org.savantbuild.plugin", name: "database", version: "1.0.1", licenses: ["ApacheV2_0"]) {
   workflow {
     standard()
   }
@@ -33,7 +33,7 @@ project(group: "org.savantbuild.plugin", name: "database", version: "1.0.0", lic
     group(name: "compile") {
       dependency(id: "com.mysql:mysql-connector-java:5.1.32")
       dependency(id: "org.liquibase:liquibase-core:3.2.2")
-      dependency(id: "org.postgresql:postgresql:9.3.1102+jdbc41")
+      dependency(id: "org.postgresql:postgresql:9.4.1212")
       dependency(id: "org.savantbuild:savant-io:${savantVersion}")
     }
     group(name: "test-compile", export: false) {
