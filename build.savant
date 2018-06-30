@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, Inversoft Inc., All Rights Reserved
+ * Copyright (c) 2014-2018, Inversoft Inc., All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
  */
 savantVersion = "1.0.0"
 
-project(group: "org.savantbuild.plugin", name: "database", version: "1.0.1", licenses: ["ApacheV2_0"]) {
+project(group: "org.savantbuild.plugin", name: "database", version: "1.0.2", licenses: ["ApacheV2_0"]) {
   workflow {
     standard()
   }
@@ -34,7 +34,7 @@ project(group: "org.savantbuild.plugin", name: "database", version: "1.0.1", lic
       dependency(id: "com.mysql:mysql-connector-java:5.1.32")
       dependency(id: "org.liquibase:liquibase-core:3.2.2")
       dependency(id: "org.postgresql:postgresql:9.4.1212")
-      dependency(id: "org.savantbuild:savant-io:${savantVersion}")
+      dependency(id: "org.savantbuild:savant-io:1.0.3")
     }
     group(name: "test-compile", export: false) {
       dependency(id: "org.testng:testng:6.8.7")
