@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, Inversoft Inc., All Rights Reserved
+ * Copyright (c) 2014-2018, Inversoft Inc., All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,7 +15,8 @@
  */
 package org.savantbuild.plugin.database
 
-import com.mysql.jdbc.jdbc2.optional.MysqlDataSource
+import org.mariadb.jdbc.MariaDbDataSource
+
 import liquibase.Liquibase
 import liquibase.changelog.DatabaseChangeLog
 import liquibase.database.Database
@@ -203,8 +204,8 @@ class DatabasePlugin extends BaseGroovyPlugin {
   private Database makeLiquibaseDatabase(String name) {
     Database database
     if (settings.type == "mysql") {
-      MysqlDataSource ds = new MysqlDataSource()
-      ds.setURL("jdbc:mysql://localhost:3306/${name}")
+      MariaDbDataSource ds = new MariaDbDataSource()
+      ds.setUrl("jdbc:mysql://localhost:3306/${name}")
       ds.setUser(settings.compareUsername)
       ds.setPassword(settings.comparePassword)
       database = new MySQLDatabase()

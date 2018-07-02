@@ -31,7 +31,7 @@ project(group: "org.savantbuild.plugin", name: "database", version: "1.0.2", lic
       dependency(id: "org.savantbuild:savant-utils:${savantVersion}")
     }
     group(name: "compile") {
-      dependency(id: "com.mysql:mysql-connector-java:5.1.32")
+      dependency(id: "org.mariadb.jdbc:mariadb-java-client:1.5.5")
       dependency(id: "org.liquibase:liquibase-core:3.2.2")
       dependency(id: "org.postgresql:postgresql:9.4.1212")
       dependency(id: "org.savantbuild:savant-io:1.0.3")
@@ -63,7 +63,7 @@ idea.settings.imlFile = "database-plugin.iml"
 idea.settings.moduleMap = [
     "org.savantbuild:savant-core:${savantVersion}"                 : "savant-core",
     "org.savantbuild:savant-dependency-management:${savantVersion}": "savant-dependency-management",
-    "org.savantbuild:savant-io:${savantVersion}"                   : "savant-io",
+    "org.savantbuild:savant-io:1.0.3"                              : "savant-io",
     "org.savantbuild:savant-utils:${savantVersion}"                : "savant-utils"
 ]
 

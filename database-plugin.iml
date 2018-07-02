@@ -39,11 +39,11 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/.savant/cache/com/mysql/mysql-connector-java/5.1.32/mysql-connector-java-5.1.32.jar!/" />
+          <root url="jar://$USER_HOME$/.savant/cache/org/mariadb/jdbc/mariadb-java-client/1.5.5/mariadb-java-client-1.5.5.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/.savant/cache/com/mysql/mysql-connector-java/5.1.32/mysql-connector-java-5.1.32-src.jar!/" />
+          <root url="jar://$USER_HOME$/.savant/cache/org/mariadb/jdbc/mariadb-java-client/1.5.5/mariadb-java-client-1.5.5-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -69,17 +69,7 @@
         </SOURCES>
       </library>
     </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
-          <root url="jar://$USER_HOME$/.savant/cache/org/savantbuild/savant-io/1.0.3/savant-io-1.0.3.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$USER_HOME$/.savant/cache/org/savantbuild/savant-io/1.0.3/savant-io-1.0.3-src.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
+    <orderEntry type="module" module-name="savant-io" />
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
