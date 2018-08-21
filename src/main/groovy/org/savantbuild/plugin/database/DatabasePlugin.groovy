@@ -15,8 +15,19 @@
  */
 package org.savantbuild.plugin.database
 
-import org.mariadb.jdbc.MariaDbDataSource
+import java.nio.file.Files
+import java.nio.file.Path
+import java.sql.Connection
 
+import org.postgresql.jdbc2.optional.SimpleDataSource
+import org.savantbuild.domain.Project
+import org.savantbuild.io.FileTools
+import org.savantbuild.output.Output
+import org.savantbuild.parser.groovy.GroovyTools
+import org.savantbuild.plugin.groovy.BaseGroovyPlugin
+import org.savantbuild.runtime.RuntimeConfiguration
+
+import com.mysql.cj.jdbc.MysqlDataSource
 import liquibase.Liquibase
 import liquibase.changelog.DatabaseChangeLog
 import liquibase.database.Database
@@ -27,17 +38,17 @@ import liquibase.diff.DiffResult
 import liquibase.diff.compare.CompareControl
 import liquibase.diff.output.report.DiffToReport
 import liquibase.resource.ClassLoaderResourceAccessor
-import liquibase.structure.core.*
-import org.postgresql.jdbc2.optional.SimpleDataSource
-import org.savantbuild.domain.Project
-import org.savantbuild.io.FileTools
-import org.savantbuild.output.Output
-import org.savantbuild.parser.groovy.GroovyTools
-import org.savantbuild.plugin.groovy.BaseGroovyPlugin
-import org.savantbuild.runtime.RuntimeConfiguration
-
-import java.nio.file.Files
-import java.nio.file.Path
+import liquibase.structure.core.Column
+import liquibase.structure.core.Data
+import liquibase.structure.core.ForeignKey
+import liquibase.structure.core.Index
+import liquibase.structure.core.PrimaryKey
+import liquibase.structure.core.Schema
+import liquibase.structure.core.Sequence
+import liquibase.structure.core.StoredProcedure
+import liquibase.structure.core.Table
+import liquibase.structure.core.UniqueConstraint
+import liquibase.structure.core.View
 
 /**
  * Database plugin.
@@ -120,6 +131,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
    * Creates a database using the {@link #settings}. Here is an example of calling this plugin method:
    * <p>
    * <pre>
+   *   database.settings.name = "foo_bar"
    *   database.settings.type = "mysql"
    *   database.settings.createUsername = "root"
    *   database.createDatabase()
@@ -135,7 +147,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
 
       if (settings.grantUsername) {
         output.infoln("Granting privileges to [${settings.grantUsername}]")
-        execAndWait(["mysql", "-u${createUsername}", "-v", settings.createArguments, "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'%' IDENTIFIED BY '${settings.grantPassword}'"])
+        execAndWait(["mysql", "-u${createUsername}", "-v", settings.createArguments, "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'%'"])
       }
     } else if (settings.type.toLowerCase() == "postgresql") {
       String createUsername = (settings.createUsername) ? settings.createUsername : "postgres"
@@ -156,7 +168,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
    * Creates a database based off the project name. This replaces - and . with _ in the project name.
    */
   void createMainDatabase() {
-    settings.name = project.name.replaceAll("\\-", "_").replaceAll("\\.", "_")
+    settings.name = project.name.replaceAll("-", "_").replaceAll("\\.", "_")
     createDatabase()
   }
 
@@ -165,7 +177,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
    * appends _test to the end.
    */
   void createTestDatabase() {
-    settings.name = project.name.replaceAll("\\-", "_").replaceAll("\\.", "_") + "_test"
+    settings.name = project.name.replaceAll("-", "_").replaceAll("\\.", "_") + "_test"
     createDatabase()
   }
 
@@ -204,12 +216,11 @@ class DatabasePlugin extends BaseGroovyPlugin {
   private Database makeLiquibaseDatabase(String name) {
     Database database
     if (settings.type == "mysql") {
-      MariaDbDataSource ds = new MariaDbDataSource()
-      ds.setUrl("jdbc:mysql://localhost:3306/${name}")
-      ds.setUser(settings.compareUsername)
-      ds.setPassword(settings.comparePassword)
+      MysqlDataSource ds = new MysqlDataSource()
+      ds.setURL("jdbc:mysql://localhost:3306/${name}?serverTimezone=UTC")
+      Connection c = ds.getConnection(settings.compareUsername, settings.comparePassword)
       database = new MySQLDatabase()
-      database.setConnection(new JdbcConnection(ds.getConnection()))
+      database.setConnection(new JdbcConnection(c))
     } else {
       SimpleDataSource ds = new SimpleDataSource()
       ds.setUrl("jdbc:postgresql://localhost:5432/${name}")
