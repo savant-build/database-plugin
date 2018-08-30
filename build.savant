@@ -15,7 +15,7 @@
  */
 savantVersion = "1.0.0"
 
-project(group: "org.savantbuild.plugin", name: "database", version: "1.0.3", licenses: ["ApacheV2_0"]) {
+project(group: "org.savantbuild.plugin", name: "database", version: "1.0.4", licenses: ["ApacheV2_0"]) {
   workflow {
     standard()
   }
@@ -48,9 +48,9 @@ project(group: "org.savantbuild.plugin", name: "database", version: "1.0.3", lic
 }
 
 // Plugins
-dependency = loadPlugin(id: "org.savantbuild.plugin:dependency:1.0.0")
-groovy = loadPlugin(id: "org.savantbuild.plugin:groovy:1.0.0")
-groovyTestNG = loadPlugin(id: "org.savantbuild.plugin:groovy-testng:1.0.0")
+dependency = loadPlugin(id: "org.savantbuild.plugin:dependency:1.0.2")
+groovy = loadPlugin(id: "org.savantbuild.plugin:groovy:1.0.2")
+groovyTestNG = loadPlugin(id: "org.savantbuild.plugin:groovy-testng:1.0.2")
 idea = loadPlugin(id: "org.savantbuild.plugin:idea:1.0.1")
 release = loadPlugin(id: "org.savantbuild.plugin:release-git:1.0.0")
 

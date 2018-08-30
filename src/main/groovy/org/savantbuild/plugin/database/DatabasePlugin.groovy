@@ -217,7 +217,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
     Database database
     if (settings.type == "mysql") {
       MysqlDataSource ds = new MysqlDataSource()
-      ds.setURL("jdbc:mysql://localhost:3306/${name}?serverTimezone=UTC")
+      ds.setURL("jdbc:mysql://localhost:3306/${name}?serverTimezone=UTC&useSSL=false")
       Connection c = ds.getConnection(settings.compareUsername, settings.comparePassword)
       database = new MySQLDatabase()
       database.setConnection(new JdbcConnection(c))
