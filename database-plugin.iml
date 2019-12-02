@@ -50,11 +50,11 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/.savant/cache/org/liquibase/liquibase-core/3.2.2/liquibase-core-3.2.2.jar!/" />
+          <root url="jar://$USER_HOME$/.savant/cache/org/liquibase/liquibase-core/3.8.2/liquibase-core-3.8.2.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/.savant/cache/org/liquibase/liquibase-core/3.2.2/liquibase-core-3.2.2-src.jar!/" />
+          <root url="jar://$USER_HOME$/.savant/cache/org/liquibase/liquibase-core/3.8.2/liquibase-core-3.8.2-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -100,6 +100,39 @@
         <JAVADOC />
         <SOURCES>
           <root url="jar://$USER_HOME$/.savant/cache/com/google/protobuf/protobuf-java/2.6.0/protobuf-java-2.6.0-src.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.savant/cache/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/.savant/cache/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3-src.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.savant/cache/org/slf4j/slf4j-api/1.7.28/slf4j-api-1.7.28.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/.savant/cache/org/slf4j/slf4j-api/1.7.28/slf4j-api-1.7.28-src.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.savant/cache/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/.savant/cache/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>

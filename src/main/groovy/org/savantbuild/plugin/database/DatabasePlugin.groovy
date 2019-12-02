@@ -30,6 +30,8 @@ import org.savantbuild.runtime.RuntimeConfiguration
 import com.mysql.cj.jdbc.MysqlDataSource
 import liquibase.Liquibase
 import liquibase.changelog.DatabaseChangeLog
+import liquibase.configuration.GlobalConfiguration
+import liquibase.configuration.LiquibaseConfiguration
 import liquibase.database.Database
 import liquibase.database.core.MySQLDatabase
 import liquibase.database.core.PostgresDatabase
@@ -97,6 +99,10 @@ class DatabasePlugin extends BaseGroovyPlugin {
     DatabaseChangeLog databaseChangeLog = new DatabaseChangeLog()
     Liquibase liquibase = new Liquibase(databaseChangeLog, new ClassLoaderResourceAccessor(), leftDatabase)
     CompareControl compareControl = new CompareControl([Column.class, Data.class, ForeignKey.class, Index.class, PrimaryKey.class, Schema.class, Sequence.class, StoredProcedure.class, Table.class, UniqueConstraint.class, View.class] as Set)
+
+    // We don't want to diff column order (because we don't order postgres columns and it shouldn't matter that much anyways)
+    LiquibaseConfiguration.getInstance().getConfiguration(GlobalConfiguration.class).setDiffColumnOrder(false)
+
     return liquibase.diff(leftDatabase, rightDatabase, compareControl)
   }
 
