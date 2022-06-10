@@ -40,33 +40,33 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/.savant/cache/com/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12.jar!/" />
+          <root url="jar://$USER_HOME$/.savant/cache/com/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/.savant/cache/com/mysql/mysql-connector-java/8.0.12/mysql-connector-java-8.0.12-src.jar!/" />
+          <root url="jar://$USER_HOME$/.savant/cache/com/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/.savant/cache/org/liquibase/liquibase-core/3.8.2/liquibase-core-3.8.2.jar!/" />
+          <root url="jar://$USER_HOME$/.savant/cache/org/liquibase/liquibase-core/3.8.8/liquibase-core-3.8.8.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/.savant/cache/org/liquibase/liquibase-core/3.8.2/liquibase-core-3.8.2-src.jar!/" />
+          <root url="jar://$USER_HOME$/.savant/cache/org/liquibase/liquibase-core/3.8.8/liquibase-core-3.8.8-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/.savant/cache/org/postgresql/postgresql/9.4.1212/postgresql-9.4.1212.jar!/" />
+          <root url="jar://$USER_HOME$/.savant/cache/org/postgresql/postgresql/42.2.8/postgresql-42.2.8.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/.savant/cache/org/postgresql/postgresql/9.4.1212/postgresql-9.4.1212-src.jar!/" />
+          <root url="jar://$USER_HOME$/.savant/cache/org/postgresql/postgresql/42.2.8/postgresql-42.2.8-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -96,11 +96,11 @@
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/.savant/cache/com/google/protobuf/protobuf-java/2.6.0/protobuf-java-2.6.0.jar!/" />
+          <root url="jar://$USER_HOME$/.savant/cache/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/.savant/cache/com/google/protobuf/protobuf-java/2.6.0/protobuf-java-2.6.0-src.jar!/" />
+          <root url="jar://$USER_HOME$/.savant/cache/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -134,6 +134,17 @@
         <JAVADOC />
         <SOURCES>
           <root url="jar://$USER_HOME$/.savant/cache/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3-src.jar!/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library" scope="RUNTIME">
+      <library>
+        <CLASSES>
+          <root url="jar://$USER_HOME$/.savant/cache/javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="jar://$USER_HOME$/.savant/cache/javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -183,3 +194,4 @@
     </orderEntry>
   </component>
 </module>
+
