@@ -15,9 +15,13 @@
  */
 package org.savantbuild.plugin.database
 
+import java.nio.file.Files
+import java.nio.file.Path
+import java.nio.file.Paths
+
 import org.savantbuild.dep.domain.License
-import org.savantbuild.dep.domain.Version
 import org.savantbuild.domain.Project
+import org.savantbuild.domain.Version
 import org.savantbuild.output.Output
 import org.savantbuild.output.SystemOutOutput
 import org.savantbuild.runtime.RuntimeConfiguration
@@ -25,11 +29,8 @@ import org.testng.annotations.BeforeMethod
 import org.testng.annotations.BeforeSuite
 import org.testng.annotations.Test
 
-import java.nio.file.Files
-import java.nio.file.Path
-import java.nio.file.Paths
-
 import static org.testng.Assert.assertEquals
+
 /**
  * Tests the database plugin.
  *
@@ -59,7 +60,7 @@ class DatabasePluginTest {
     project.group = "org.savantbuild.test"
     project.name = "database-plugin"
     project.version = new Version("1.0")
-    project.licenses.put(License.ApacheV2_0, null)
+    project.licenses.add(License.parse("ApacheV2_0", null))
   }
 
   @Test
