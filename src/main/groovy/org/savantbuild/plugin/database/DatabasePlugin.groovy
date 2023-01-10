@@ -163,7 +163,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
       if (settings.grantUsername) {
         output.infoln("Granting privileges to [${settings.grantUsername}]")
         execAndWait(["psql", "-U", createUsername, settings.createArguments, "-c", "GRANT ALL PRIVILEGES ON DATABASE ${settings.name} TO ${settings.grantUsername}"])
-        execAndWait(["psql", "-U", createUsername, settings.createArguments, "-c", "GRANT ALL PRIVILEGES ON DATABASE ${settings.name} TO ${settings.grantUsername}"])
+        execAndWait(["psql", "-U", createUsername, settings.createArguments, "-c", "ALTER DATABASE ${settings.name} OWNER TO ${settings.grantUsername}"])
       }
     } else {
       fail("Unsupported database type [${settings.type}]")
