@@ -157,13 +157,14 @@ class DatabasePlugin extends BaseGroovyPlugin {
       }
     } else if (settings.type.toLowerCase() == "postgresql") {
       String createUsername = (settings.createUsername) ? settings.createUsername : "postgres"
-      execAndWait(["psql", "-U", createUsername, settings.createArguments, "-c", "DROP DATABASE IF EXISTS ${settings.name}"])
-      execAndWait(["psql", "-U", createUsername, settings.createArguments, "-c", "CREATE DATABASE ${settings.name} ${settings.createSuffix}"])
+      execAndWait(["psql", "-U", createUsername, "-h", settings.host, settings.createArguments, "-c", "DROP DATABASE IF EXISTS ${settings.name}"])
+      execAndWait(["psql", "-U", createUsername, "-h", settings.host, settings.createArguments, "-c", "CREATE DATABASE ${settings.name} ${settings.createSuffix}"])
 
       if (settings.grantUsername) {
         output.infoln("Granting privileges to [${settings.grantUsername}]")
-        execAndWait(["psql", "-U", createUsername, settings.createArguments, "-c", "GRANT ALL PRIVILEGES ON DATABASE ${settings.name} TO ${settings.grantUsername}"])
-        execAndWait(["psql", "-U", createUsername, settings.createArguments, "-c", "ALTER DATABASE ${settings.name} OWNER TO ${settings.grantUsername}"])
+        execAndWait(["psql", "-U", createUsername, "-h", settings.host, settings.createArguments, "-c", "CREATE ROLE ${settings.grantUsername} login superuser password '${settings.grantPassword}'"], true)
+        execAndWait(["psql", "-U", createUsername, "-h", settings.host, settings.createArguments, "-c", "GRANT ALL PRIVILEGES ON DATABASE ${settings.name} TO ${settings.grantUsername}"])
+        execAndWait(["psql", "-U", createUsername, "-h", settings.host, settings.createArguments, "-c", "ALTER DATABASE ${settings.name} OWNER TO ${settings.grantUsername}"])
       }
     } else {
       fail("Unsupported database type [${settings.type}]")
@@ -213,7 +214,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
     if (settings.type.toLowerCase() == "mysql") {
       execAndWait(["mysql", "-u${settings.executeUsername}", "-p${settings.executePassword}", "-v", settings.executeArguments, settings.name], script, attributes['file'].toString())
     } else if (settings.type.toLowerCase() == "postgresql") {
-      execAndWait(["psql", "-U", settings.executeUsername, settings.executeArguments, settings.name], script, attributes['file'].toString())
+      execAndWait(["psql", "-U", settings.executeUsername, "-h", settings.host, settings.executeArguments, settings.name], script, attributes['file'].toString())
     } else {
       fail("Unsupported database type [${settings.type}]")
     }
@@ -238,7 +239,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
     return database
   }
 
-  private void execAndWait(List<String> command) {
+  private void execAndWait(List<String> command, boolean ignoreFailure = false) {
     command.removeAll { it.trim().isEmpty() }
 
     output.debugln("Running [%s]", command.join(" "))
@@ -251,7 +252,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
     int code = process.waitFor()
     output.debugln(out.toString())
     output.debugln(err.toString())
-    if (code != 0) {
+    if (code != 0 && !ignoreFailure) {
       fail("Command [${command.join(' ')}] failed. Turn on debugging to see the error message from the database.")
     }
   }

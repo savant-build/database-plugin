@@ -143,7 +143,7 @@ class DatabasePluginTest {
 
     plugin.execute(file: "src/test/resources/test-postgresql.sql")
 
-    Process process = ["psql", "-U", "dev", "-c", "\\dt", "database_plugin"].execute()
+    Process process = ["psql", "-Udev", "-hlocalhost", "-c", "\\dt", "database_plugin"].execute()
     assertEquals(process.text, "       List of relations\n" +
         " Schema | Name | Type  | Owner \n" +
         "--------+------+-------+-------\n" +
