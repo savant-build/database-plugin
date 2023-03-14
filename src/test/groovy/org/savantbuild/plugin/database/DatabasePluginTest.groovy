@@ -100,7 +100,7 @@ class DatabasePluginTest {
 
     plugin.execute(file: "src/test/resources/test-mysql.sql")
 
-    Process process = ["mysql", "-udev", "-pdev", "-e", "show tables", "-v", "database_plugin"].execute()
+    Process process = ["mysql", "-udev", "-h127.0.0.1", "-pdev", "-e", "show tables", "-v", "database_plugin"].execute()
     assertEquals(process.text, "--------------\nshow tables\n--------------\n\nTables_in_database_plugin\ntest\n")
     assertEquals(process.exitValue(), 0)
   }
@@ -115,7 +115,7 @@ class DatabasePluginTest {
 
     plugin.execute(file: "src/test/resources/test-mysql.sql")
 
-    Process process = ["mysql", "-udev", "-pdev", "-e", "show tables", "-v", "database_plugin"].execute()
+    Process process = ["mysql", "-udev", "-h127.0.0.1", "-pdev", "-e", "show tables", "-v", "database_plugin"].execute()
     assertEquals(process.text, "--------------\nshow tables\n--------------\n\nTables_in_database_plugin\ntest\n")
     assertEquals(process.exitValue(), 0)
   }
@@ -129,7 +129,7 @@ class DatabasePluginTest {
 
     plugin.execute(file: "src/test/resources/test-mysql.sql")
 
-    Process process = ["mysql", "-udev", "-pdev", "-e", "show tables", "-v", "database_plugin_test"].execute()
+    Process process = ["mysql", "-udev", "-h127.0.0.1", "-pdev", "-e", "show tables", "-v", "database_plugin_test"].execute()
     assertEquals(process.text, "--------------\nshow tables\n--------------\n\nTables_in_database_plugin_test\ntest\n")
     assertEquals(process.exitValue(), 0)
   }
@@ -143,7 +143,7 @@ class DatabasePluginTest {
 
     plugin.execute(file: "src/test/resources/test-postgresql.sql")
 
-    Process process = ["psql", "-Udev", "-hlocalhost", "-c", "\\dt", "database_plugin"].execute()
+    Process process = ["psql", "-Udev", "-h127.0.0.1", "-c", "\\dt", "database_plugin"].execute()
     assertEquals(process.text, "       List of relations\n" +
         " Schema | Name | Type  | Owner \n" +
         "--------+------+-------+-------\n" +

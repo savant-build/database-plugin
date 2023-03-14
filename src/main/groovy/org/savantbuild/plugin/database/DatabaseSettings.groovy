@@ -36,7 +36,7 @@ class DatabaseSettings {
   /**
    * The host where the database is running. Defaults to `localhost`
    */
-  String host = "localhost"
+  String host = "127.0.0.1"
 
   /**
    * Additional arguments passed to the create statement. Defaults to an empty String.
