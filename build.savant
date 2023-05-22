@@ -30,16 +30,16 @@ project(group: "org.savantbuild.plugin", name: "database", version: "2.0.0-RC.6"
 
   dependencies {
     group(name: "provided") {
-      dependency(id: "org.savantbuild:savant-core:2.0.0-RC.4")
-      dependency(id: "org.savantbuild:savant-dependency-management:2.0.0-RC.4")
-      dependency(id: "org.savantbuild:savant-utils:2.0.0-RC.4")
-      dependency(id: "org.savantbuild:savant-version:2.0.0-RC.4")
+      dependency(id: "org.savantbuild:savant-core:2.0.0-RC.6")
+      dependency(id: "org.savantbuild:savant-dependency-management:2.0.0-RC.6")
+      dependency(id: "org.savantbuild:savant-utils:2.0.0-RC.6")
+      dependency(id: "org.savantbuild:savant-version:2.0.0-RC.6")
     }
     group(name: "compile") {
       dependency(id: "com.mysql:mysql-connector-java:8.0.18")
       dependency(id: "org.liquibase:liquibase-core:3.8.8")
       dependency(id: "org.postgresql:postgresql:42.2.8")
-      dependency(id: "org.savantbuild:savant-io:2.0.0-RC.4")
+      dependency(id: "org.savantbuild:savant-io:2.0.0-RC.6")
     }
     group(name: "test-compile", export: false) {
       dependency(id: "org.testng:testng:6.8.7")
@@ -52,25 +52,25 @@ project(group: "org.savantbuild.plugin", name: "database", version: "2.0.0-RC.6"
 }
 
 // Plugins
-dependency = loadPlugin(id: "org.savantbuild.plugin:dependency:2.0.0-RC.4")
-groovy = loadPlugin(id: "org.savantbuild.plugin:groovy:2.0.0-RC.4")
-groovyTestNG = loadPlugin(id: "org.savantbuild.plugin:groovy-testng:2.0.0-RC.4")
-idea = loadPlugin(id: "org.savantbuild.plugin:idea:2.0.0-RC.4")
-release = loadPlugin(id: "org.savantbuild.plugin:release-git:2.0.0-RC.4")
+dependency = loadPlugin(id: "org.savantbuild.plugin:dependency:2.0.0-RC.6")
+groovy = loadPlugin(id: "org.savantbuild.plugin:groovy:2.0.0-RC.6")
+groovyTestNG = loadPlugin(id: "org.savantbuild.plugin:groovy-testng:2.0.0-RC.6")
+idea = loadPlugin(id: "org.savantbuild.plugin:idea:2.0.0-RC.6")
+release = loadPlugin(id: "org.savantbuild.plugin:release-git:2.0.0-RC.6")
 
 // Plugin settings
 groovy.settings.groovyVersion = "4.0"
-groovy.settings.javaVersion = "1.8"
+groovy.settings.javaVersion = "17"
 groovy.settings.jarManifest["Savant-Plugin-Class"] = "org.savantbuild.plugin.database.DatabasePlugin"
 groovyTestNG.settings.groovyVersion = "4.0"
-groovyTestNG.settings.javaVersion = "1.8"
+groovyTestNG.settings.javaVersion = "17"
 idea.settings.imlFile = "database-plugin.iml"
 idea.settings.moduleMap = [
-    "org.savantbuild:savant-core:2.0.0-RC.4"                  : "savant-core",
-    "org.savantbuild:savant-dependency-management:2.0.0-RC.4" : "savant-dependency-management",
-    "org.savantbuild:savant-io:2.0.0-RC.4"                    : "savant-io",
-    "org.savantbuild:savant-utils:2.0.0-RC.4"                 : "savant-utils",
-    "org.savantbuild:savant-version:2.0.0-RC.4"               : "savant-version"
+    "org.savantbuild:savant-core:2.0.0-RC.6"                  : "savant-core",
+    "org.savantbuild:savant-dependency-management:2.0.0-RC.6" : "savant-dependency-management",
+    "org.savantbuild:savant-io:2.0.0-RC.6"                    : "savant-io",
+    "org.savantbuild:savant-utils:2.0.0-RC.6"                 : "savant-utils",
+    "org.savantbuild:savant-version:2.0.0-RC.6"               : "savant-version"
 ]
 
 target(name: "clean", description: "Cleans the project") {
