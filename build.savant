@@ -67,11 +67,11 @@ groovyTestNG.settings.groovyVersion = "4.0"
 groovyTestNG.settings.javaVersion = "17"
 idea.settings.imlFile = "database-plugin.iml"
 idea.settings.moduleMap = [
-    ("org.savantbuild:savant-core:${savantVersion}".toString())                 : "savant-core",
-    ("org.savantbuild:savant-dependency-management:${savantVersion}".toString()): "savant-dependency-management",
-    ("org.savantbuild:savant-io:${savantVersion}".toString())                   : "savant-io",
-    ("org.savantbuild:savant-utils:${savantVersion}".toString())                : "savant-utils",
-    ("org.savantbuild:savant-version:${savantVersion}".toString())              : "savant-version"
+    "org.savantbuild:savant-core:${savantVersion}"                 : "savant-core",
+    "org.savantbuild:savant-dependency-management:${savantVersion}": "savant-dependency-management",
+    "org.savantbuild:savant-io:${savantVersion}"                   : "savant-io",
+    "org.savantbuild:savant-utils:${savantVersion}"                : "savant-utils",
+    "org.savantbuild:savant-version:${savantVersion}"              : "savant-version"
 ]
 
 target(name: "clean", description: "Cleans the project") {
