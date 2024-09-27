@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2014, Inversoft Inc., All Rights Reserved
+ * Copyright (c) 2014-2024, Inversoft Inc., All Rights Reserved
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -59,7 +59,7 @@ class DatabasePluginTest {
     project = new Project(projectDir, output)
     project.group = "org.savantbuild.test"
     project.name = "database-plugin"
-    project.version = new Version("1.0")
+    project.version = new Version("1.0.0")
     project.licenses.add(License.parse("ApacheV2_0", null))
   }
 
@@ -102,7 +102,7 @@ class DatabasePluginTest {
 
     Process process = ["mysql", "-udev", "-h127.0.0.1", "-pdev", "-e", "show tables", "-v", "database_plugin"].execute()
     assertEquals(process.text, "--------------\nshow tables\n--------------\n\nTables_in_database_plugin\ntest\n")
-    assertEquals(process.exitValue(), 0)
+    assertEquals((long) process.exitValue(), 0)
   }
 
   @Test
@@ -117,7 +117,7 @@ class DatabasePluginTest {
 
     Process process = ["mysql", "-udev", "-h127.0.0.1", "-pdev", "-e", "show tables", "-v", "database_plugin"].execute()
     assertEquals(process.text, "--------------\nshow tables\n--------------\n\nTables_in_database_plugin\ntest\n")
-    assertEquals(process.exitValue(), 0)
+    assertEquals((long) process.exitValue(), 0)
   }
 
   @Test
@@ -131,7 +131,7 @@ class DatabasePluginTest {
 
     Process process = ["mysql", "-udev", "-h127.0.0.1", "-pdev", "-e", "show tables", "-v", "database_plugin_test"].execute()
     assertEquals(process.text, "--------------\nshow tables\n--------------\n\nTables_in_database_plugin_test\ntest\n")
-    assertEquals(process.exitValue(), 0)
+    assertEquals((long) process.exitValue(), 0)
   }
 
   @Test
@@ -150,6 +150,6 @@ class DatabasePluginTest {
         " public | test | table | dev\n" +
         "(1 row)\n" +
         "\n")
-    assertEquals(process.exitValue(), 0)
+    assertEquals((long) process.exitValue(), 0)
   }
 }

@@ -16,220 +16,220 @@
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-datetime/4.0.5/groovy-datetime-4.0.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-datetime/4.0.22/groovy-datetime-4.0.22.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-datetime/4.0.5/groovy-datetime-4.0.5-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-datetime/4.0.22/groovy-datetime-4.0.22-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy/4.0.5/groovy-4.0.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy/4.0.22/groovy-4.0.22.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy/4.0.5/groovy-4.0.5-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy/4.0.22/groovy-4.0.22-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-groovydoc/4.0.5/groovy-groovydoc-4.0.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-groovydoc/4.0.22/groovy-groovydoc-4.0.22.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-groovydoc/4.0.5/groovy-groovydoc-4.0.5-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-groovydoc/4.0.22/groovy-groovydoc-4.0.22-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-docgenerator/4.0.5/groovy-docgenerator-4.0.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-docgenerator/4.0.22/groovy-docgenerator-4.0.22.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-docgenerator/4.0.5/groovy-docgenerator-4.0.5-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-docgenerator/4.0.22/groovy-docgenerator-4.0.22-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/thoughtworks/qdox/qdox/1.12.1/qdox-1.12.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/thoughtworks/qdox/qdox/1.12.1/qdox-1.12.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/thoughtworks/qdox/qdox/1.12.1/qdox-1.12.1-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/thoughtworks/qdox/qdox/1.12.1/qdox-1.12.1-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-templates/4.0.5/groovy-templates-4.0.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-templates/4.0.22/groovy-templates-4.0.22.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-templates/4.0.5/groovy-templates-4.0.5-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-templates/4.0.22/groovy-templates-4.0.22-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-xml/4.0.5/groovy-xml-4.0.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-xml/4.0.5/groovy-xml-4.0.5-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-xml/4.0.22/groovy-xml-4.0.22-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/github/javaparser/javaparser-core/3.24.4/javaparser-core-3.24.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/github/javaparser/javaparser-core/3.26.1/javaparser-core-3.26.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/github/javaparser/javaparser-core/3.24.4/javaparser-core-3.24.4-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/github/javaparser/javaparser-core/3.26.1/javaparser-core-3.26.1-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-jmx/4.0.5/groovy-jmx-4.0.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-jmx/4.0.22/groovy-jmx-4.0.22.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-jmx/4.0.5/groovy-jmx-4.0.5-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-jmx/4.0.22/groovy-jmx-4.0.22-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-jsr223/4.0.5/groovy-jsr223-4.0.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-jsr223/4.0.22/groovy-jsr223-4.0.22.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-jsr223/4.0.5/groovy-jsr223-4.0.5-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-jsr223/4.0.22/groovy-jsr223-4.0.22-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-macro/4.0.5/groovy-macro-4.0.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-macro/4.0.22/groovy-macro-4.0.22.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-macro/4.0.5/groovy-macro-4.0.5-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-macro/4.0.22/groovy-macro-4.0.22-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-nio/4.0.5/groovy-nio-4.0.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-nio/4.0.22/groovy-nio-4.0.22.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-nio/4.0.5/groovy-nio-4.0.5-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-nio/4.0.22/groovy-nio-4.0.22-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-sql/4.0.5/groovy-sql-4.0.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-sql/4.0.22/groovy-sql-4.0.22.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-sql/4.0.5/groovy-sql-4.0.5-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-sql/4.0.22/groovy-sql-4.0.22-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-yaml/4.0.5/groovy-yaml-4.0.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-yaml/4.0.22/groovy-yaml-4.0.22.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-yaml/4.0.5/groovy-yaml-4.0.5-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-yaml/4.0.22/groovy-yaml-4.0.22-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-json/4.0.5/groovy-json-4.0.5.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.17.1/jackson-dataformat-yaml-2.17.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/groovy/groovy-json/4.0.5/groovy-json-4.0.5-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.17.1/jackson-dataformat-yaml-2.17.1-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.13.4/jackson-dataformat-yaml-2.13.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/yaml/snakeyaml/2.2.0/snakeyaml-2.2.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/fasterxml/jackson/dataformat/jackson-dataformat-yaml/2.13.4/jackson-dataformat-yaml-2.13.4-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/yaml/snakeyaml/2.2.0/snakeyaml-2.2.0-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/yaml/snakeyaml/1.31.0/snakeyaml-1.31.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/fasterxml/jackson/core/jackson-databind/2.17.1/jackson-databind-2.17.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/yaml/snakeyaml/1.31.0/snakeyaml-1.31.0-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/fasterxml/jackson/core/jackson-databind/2.17.1/jackson-databind-2.17.1-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/fasterxml/jackson/core/jackson-databind/2.13.4/jackson-databind-2.13.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/fasterxml/jackson/core/jackson-annotations/2.17.1/jackson-annotations-2.17.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/fasterxml/jackson/core/jackson-databind/2.13.4/jackson-databind-2.13.4-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/fasterxml/jackson/core/jackson-annotations/2.17.1/jackson-annotations-2.17.1-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/fasterxml/jackson/core/jackson-annotations/2.13.4/jackson-annotations-2.13.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/fasterxml/jackson/core/jackson-core/2.17.1/jackson-core-2.17.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/fasterxml/jackson/core/jackson-annotations/2.13.4/jackson-annotations-2.13.4-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/fasterxml/jackson/core/jackson-core/2.17.1/jackson-core-2.17.1-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="PROVIDED">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/fasterxml/jackson/core/jackson-core/2.13.4/jackson-core-2.13.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/fasterxml/jackson/core/jackson-core/2.13.4/jackson-core-2.13.4-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/groovy/groovy-json/4.0.22/groovy-json-4.0.22-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -239,33 +239,33 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/mysql/mysql-connector-java/8.0.18/mysql-connector-java-8.0.18-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/liquibase/liquibase-core/3.8.8/liquibase-core-3.8.8.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/liquibase/liquibase-core/3.8.8/liquibase-core-3.8.8.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/liquibase/liquibase-core/3.8.8/liquibase-core-3.8.8-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/liquibase/liquibase-core/3.8.8/liquibase-core-3.8.8-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/postgresql/postgresql/42.2.8/postgresql-42.2.8.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/postgresql/postgresql/42.2.8/postgresql-42.2.8.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/postgresql/postgresql/42.2.8/postgresql-42.2.8-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/postgresql/postgresql/42.2.8/postgresql-42.2.8-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
@@ -273,121 +273,121 @@
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/testng/testng/6.8.7/testng-6.8.7.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/testng/testng/6.8.7/testng-6.8.7.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/testng/testng/6.8.7/testng-6.8.7-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/testng/testng/6.8.7/testng-6.8.7-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="TEST">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/beust/jcommander/1.27.0/jcommander-1.27.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/beust/jcommander/1.27.0/jcommander-1.27.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/beust/jcommander/1.27.0/jcommander-1.27.0-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/beust/jcommander/1.27.0/jcommander-1.27.0-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/slf4j/slf4j-api/1.7.28/slf4j-api-1.7.28.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/slf4j/slf4j-api/1.7.28/slf4j-api-1.7.28.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/slf4j/slf4j-api/1.7.28/slf4j-api-1.7.28-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/slf4j/slf4j-api/1.7.28/slf4j-api-1.7.28-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/javax/xml/bind/jaxb-api/2.3.0/jaxb-api-2.3.0-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/ant/ant/1.9.4/ant-1.9.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/ant/ant/1.9.4/ant-1.9.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/ant/ant/1.9.4/ant-1.9.4-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/ant/ant/1.9.4/ant-1.9.4-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/ant/ant-launcher/1.9.4/ant-launcher-1.9.4-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/commons/commons-compress/1.7.0/commons-compress-1.7.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/commons/commons-compress/1.7.0/commons-compress-1.7.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/apache/commons/commons-compress/1.7.0/commons-compress-1.7.0-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/apache/commons/commons-compress/1.7.0/commons-compress-1.7.0-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library" scope="RUNTIME">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/tukaani/xz/1.4.0/xz-1.4.0.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/tukaani/xz/1.4.0/xz-1.4.0.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES>
-          <root url="jar://$USER_HOME$/dev/os/savant/database-plugin/.savant/cache/org/tukaani/xz/1.4.0/xz-1.4.0-src.jar!/" />
+          <root url="jar://$MODULE_DIR$/.savant/cache/org/tukaani/xz/1.4.0/xz-1.4.0-src.jar!/" />
         </SOURCES>
       </library>
     </orderEntry>
