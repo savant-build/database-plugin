@@ -153,7 +153,7 @@ class DatabasePlugin extends BaseGroovyPlugin {
 
       if (settings.grantUsername) {
         output.infoln("Granting privileges to [${settings.grantUsername}]")
-        execAndWait(["mysql", "-u${createUsername}", "-h${settings.host}", "-v", settings.createArguments, "-e", "CREATE USER 'dev'@'%' IDENTIFIED BY '${settings.grantPassword}'"], true)
+        execAndWait(["mysql", "-u${createUsername}", "-h${settings.host}", "-v", settings.createArguments, "-e", "CREATE USER '${settings.grantUsername}'@'%' IDENTIFIED BY '${settings.grantPassword}'"], true)
         execAndWait(["mysql", "-u${createUsername}", "-h${settings.host}", "-v", settings.createArguments, "-e", "GRANT ALL PRIVILEGES ON ${settings.name}.* TO '${settings.grantUsername}'@'%'"])
       }
     } else if (settings.type.toLowerCase() == "postgresql") {
